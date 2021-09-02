@@ -6,22 +6,22 @@ public class BubbleSort {
 static Scanner scanner=new Scanner(System.in);
 	
 
-	public static void bubbleSort(int listOFNumber[]){
+	public static <T extends Comparable<T>> void bubbleSort(T listOFNumber[]){
 	int size=listOFNumber.length;
-		for (int i = 0; i < size - 1; i++)
-		      for (int j = 0; j < size - i - 1; j++)
+		for (int iindex1 = 0; iindex1 < size - 1; iindex1++)
+		      for (int index2 = 0; index2 < size - iindex1 - 1; index2++)
 
-		        if (listOFNumber[j] > listOFNumber[j + 1]) {
-		          int temp = listOFNumber[j];
-		          listOFNumber[j] = listOFNumber[j + 1];
-		          listOFNumber[j + 1] = temp;
+		        if (listOFNumber[index2].compareTo(listOFNumber[index2 + 1])>0) {
+		          T temporaryBucket = listOFNumber[index2];
+		          listOFNumber[index2] = listOFNumber[index2 + 1];
+		          listOFNumber[index2 + 1] = temporaryBucket;
 		        }
 	
 	
 		printArray(listOFNumber);
 	}
-	static void printArray(int[] listOfNumber) {
-		for (int number : listOfNumber) {
+	static <T>void printArray(T[] listOfNumber) {
+		for (T number : listOfNumber) {
 			System.out.print(number + " ");
 		}
 
@@ -32,7 +32,7 @@ static Scanner scanner=new Scanner(System.in);
 		System.out.println("Enter size of array");
 		int size=scanner.nextInt();
 
-		int listOFNumber[]= new int[size];
+		Integer listOFNumber[]= new Integer[size];
 
 		System.out.println("Enter  elements");
 		for(int index=0;index<size;index++)
