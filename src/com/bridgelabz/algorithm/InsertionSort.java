@@ -6,11 +6,11 @@ public class InsertionSort{
 	static Scanner scanner=new Scanner(System.in);
 	
 
-	public static void insertionSort(String words[]){
+	public static  <T extends Comparable<T>>void insertionSort(T words[]){
 	
 		for(int index=0;index<words.length;index++)
 		{
-			String key=words[index];
+			T key=words[index];
 			int indexTo=index-1;
 	
 			while(indexTo>=0 && words[indexTo].compareTo(key)>0)
@@ -26,8 +26,8 @@ public class InsertionSort{
 	
 		printArray(words);
 	}
-	static void printArray(String[] array) {
-		for (String word : array) {
+	static <T> void printArray(T array[]) {
+		for (T word : array) {
 			System.out.print(word + " ");
 		}
 
